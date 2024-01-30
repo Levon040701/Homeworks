@@ -25,13 +25,14 @@ function isPrime(n) {
     return true;
 }
 
-function isAllPrime(arr) {
+function sumAllPrimes(arr) {
+    let sum = 0;
     for (let i = 0; i < arr.length; i++) {
-        if ( !isPrime(arr[i]) ) {
-            return false;
+        if ( isPrime(arr[i]) ) {
+            sum += arr[i];
         }
     }
-    return true;
+    return sum;
 }
 
 // console.log( isAllPrime([11, 23, 97, 5, 601]) );
