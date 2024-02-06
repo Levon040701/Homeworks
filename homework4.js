@@ -27,10 +27,11 @@ function filter(arr, callback) {
 
 //3.
 function map(arr, callback) {
+    const mapping = [];
     for (let i = 0; i < arr.length; i++) {
-        arr[i] = callback(arr[i]);
+        mapping[i] = callback(arr[i]);
     }
-    return arr;
+    return mapping;
 }
 
 // console.log( map(a, n => Math.floor( absoluteValueOf(n) )) );
