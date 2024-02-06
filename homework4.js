@@ -86,6 +86,21 @@ function forEach(arr, callback) {
 // });
 // console.log(sum);
 
+//8.
+function reduce(arr, callback, acc) {
+    let startIndex = 0;
+    if (acc === undefined) {
+        acc = arr[0];
+        startIndex++;
+    }
+    for (let i = startIndex; i < arr.length; i++) {
+        acc = callback(arr[i], acc, i, arr);
+    }
+    return acc;
+}
+
+// console.log( reduce(a, (el, acc, i, array) => acc + el / array.length, 0) );
+
 
 
 function isPrime(n) {
