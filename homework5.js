@@ -1,6 +1,6 @@
 // 1.
 function reverseRec(n) {
-    if (n / 10 < 1) {
+    if (n < 10) {
         return n;
     }
 
