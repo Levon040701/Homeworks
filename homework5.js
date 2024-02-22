@@ -31,15 +31,13 @@ function secondOccurence(n, arr) {
 // console.log( secondOccurence(8, [8, 8, 4, 0, 8, 0, 0, 0, 4]) );
 
 // 3.
-function substrCount(sub, str) {
-    let count = 0;
-    for (let i = 0; i < str.length; i++) {
-        if (str.substr(i, sub.length) === sub) {
-            count++;
-        }
+function substrCountRec(sub, str, count=0) {
+    if (!str.includes(sub)) {
+        return count;
     }
 
-    return count;
+    let newStr = str.slice(str.indexOf(sub) + sub.length);
+    return substrCountRec(sub, newStr, ++count);
 }
 
 // console.log( substrCount('ar', 'Are var far shared?') );
