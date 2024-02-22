@@ -16,19 +16,15 @@ function reverseRec(n) {
 // console.log( reverseRec(2) );
 
 // 2.
-function secondOccurence(n, arr) {
-    let firstFound = false;
-    for (let i = 0; i < arr.length; i++) {
-        if (firstFound && arr[i] === n) {
-            return i;
-        }
-        if (arr[i] === n) {
-            firstFound = true;
-        }
+function secondOccurenceRec(n, arr, count=0, index=0) {
+    if (count === 2) {
+        return index - 1;
     }
-}
 
-// console.log( secondOccurence(8, [8, 8, 4, 0, 8, 0, 0, 0, 4]) );
+    let foundIndex = arr.indexOf(n, index);
+    return secondOccurenceRec(n, arr, ++count, ++foundIndex);
+}
+// console.log( secondOccurenceRec(8, [8, 8, 4, 0, 8, 0, 0, 0, 4]) );
 
 // 3.
 function substrCountRec(sub, str, count=0) {
@@ -40,7 +36,7 @@ function substrCountRec(sub, str, count=0) {
     return substrCountRec(sub, newStr, ++count);
 }
 
-// console.log( substrCount('ar', 'Are var far shared?') );
+// console.log( substrCountRec('ar', 'Are var far shared?') );
 
 // 4.
 function replacePiRec(str) {
