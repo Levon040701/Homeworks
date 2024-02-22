@@ -21,9 +21,12 @@ function secondOccurenceRec(n, arr, count=0, index=0) {
         return index - 1;
     }
 
-    let foundIndex = arr.indexOf(n, index);
-    return secondOccurenceRec(n, arr, ++count, ++foundIndex);
+    if (arr[index] === n) {
+        ++count;
+    }
+    return secondOccurenceRec(n, arr, count, ++index);
 }
+
 // console.log( secondOccurenceRec(8, [8, 8, 4, 0, 8, 0, 0, 0, 4]) );
 
 // 3.
