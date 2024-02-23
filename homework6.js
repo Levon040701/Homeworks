@@ -131,6 +131,8 @@ function breadthFirstSearch1(arr, level=null, root=null) {
 //     return root;
 // }
 
-let treeLike = [{parent: 1, id: 2}, {parent: null, id: 1}, {parent: 3, id: 4}, {parent: 1, id: 3}, {parent: 4, id: 5}, {parent: 2, id: 6}];
+let treeLike = [{id: 1, parentId: null}, {id: 2, parentId: 1}, {id: 3, parentId: 1}, {id: 4, parentId: 2}, {id: 5, parentId: 2}, {id: 6, parentId: 3}, {id: 7, parentId: 4}, {id: 8, parentId: 7}, {id: 9, parentId: 8}];
+console.log( depthFirstSearch1(treeLike) );
+console.log( depthFirstSearch2(treeLike) );
 console.log( breadthFirstSearch1(treeLike) );
 
