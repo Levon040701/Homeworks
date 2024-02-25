@@ -95,44 +95,43 @@ function breadthFirstSearch1(arr, level=null, root=null) {
     return root;
 }
 
-// function breadthFirstSearch2(arr, root=null, level=null, parentIdsArr=null) {
-//     if (level === null) {
-//         for (let i = 0; i < arr.length; i++) {
-//             if (arr[i].parent === null) {
-//                 parentIdsArr = [arr[i].id];
-//                 root = {[parentIdsArr[0]]: {}};
-//                 level = [root];
-//                 break;
-//             }
-//         }
-//     }
+function breadthFirstSearch2(arr, level=null, root=null) {
+    if (level === null) {
+        for (let i = 0; i < arr.length; i++) {
+            if (arr[i].parent === null) {
+                root = {[arr[i].id]: {}};
+                level = [root];
+                break;
+            }
+        }
+    }
 
-//     if (level.length === 0) {
-//         return;
-//     }
+    if (level.length === 0) {
+        return;
+    }
 
-//     let nextLevel = [];
-//     let childrenIdsArr = [];
-//     for (let i = 0; i < level.length; i++) {
-//         let parentNode = level[i];
-//         let parentId = parentIdsArr[i];
-//         for (let j = 0; j < arr.length; j++) {
-//             if (arr[j].parent === +(parentId)) {
-//                 let childId = arr[j].id;
-//                 let child = {[childId]: {}};
-//                 nextLevel.push(child);
-//                 childrenIdsArr.push(childId);
-//                 parentNode[parentId] = child;
-//             }
-//         }
-//     }
-//     breadthFirstSearch2(arr, root, nextLevel, childrenIdsArr);
+    let nextLevel = [];
+    for (let i = 0; i < level.length; i++) {
+        for (const key in level[i]) {
+            let parentNode = level[i][key];
+            for (let j = 0; j < arr.length; j++) {
+                if (arr[j].parent === +(key)) {
+                    let childId = arr[j].id;
+                    parentNode[childId] = {};
+                }
+            }
             
-//     return root;
-// }
+            nextLevel.push(parentNode);
+        }
+    }
+    breadthFirstSearch2(arr, nextLevel, root);
+            
+    return root;
+}
 
 let treeLike = [{id: 1, parentId: null}, {id: 2, parentId: 1}, {id: 3, parentId: 1}, {id: 4, parentId: 2}, {id: 5, parentId: 2}, {id: 6, parentId: 3}, {id: 7, parentId: 4}, {id: 8, parentId: 7}, {id: 9, parentId: 8}];
 console.log( depthFirstSearch1(treeLike) );
 console.log( depthFirstSearch2(treeLike) );
 console.log( breadthFirstSearch1(treeLike) );
+console.log( breadthFirstSearch2(treeLike) );
 
