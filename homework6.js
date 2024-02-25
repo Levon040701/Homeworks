@@ -72,12 +72,11 @@ function breadthFirstSearch1(arr, level=null, root=null) {
     }
 
     let nextLevel = [];
-    let child;
     for (let i = 0; i < level.length; i++) {
         let parentNode = level[i];
         for (let j = 0; j < arr.length; j++) {
             if (arr[j].parent === parentNode.id) {
-                child = {'id': arr[j].id, 'children': null};
+                let child = {'id': arr[j].id, 'children': null};
                 nextLevel.push(child);
                 if (parentNode.children === null) {
                     parentNode.children = child;
@@ -90,7 +89,7 @@ function breadthFirstSearch1(arr, level=null, root=null) {
             }
         }
     }
-    breadthFirstSearch1(arr, nextLevel, child);
+    breadthFirstSearch1(arr, nextLevel, root);
             
     return root;
 }
