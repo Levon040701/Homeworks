@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    width: 600px;
+    height: 700px;
+    margin: 0 auto;
+    padding: 32px 0;
+    background-color: #4784a5;
+}
+
+#progress {
+    margin: 0 50px;
+    color: white;
+    font-size: 1.2em;
+}
+
+#images {
+    width: 300px;
+    height: 500px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+}
+
+img {
+    width: 0;
+    transition: width 1s;
+}
+
+img.shown {
+    width: 300px;
+}
+
+#commands {
+    width: fit-content;
+    height: 100px;
+    margin: 16px auto 0;
+    border: 2px solid white;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button {
+    height: 80%;
+    padding: 0 32px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: white;
+    font-size: 2em;
+    transition: margin-bottom 0.25s;
+}
+
+button:hover {
+    margin-bottom: 8px;
+}
+
+button#playBtn {
+    font-size: 3em;
+}
+
+button#pauseBtn {
+    display: none;
+    font-size: 1.8em;
+}
+
